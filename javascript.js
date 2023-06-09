@@ -4,7 +4,7 @@ const ComputerChoice = getComputerChoice().toUpperCase();
 const PlayerChoice = getComputerChoice().toUpperCase();
 
 
-
+// Choose your weapon!!
 function getComputerChoice() {
     let choice = ""
     let randomNumber = Math.floor(Math.random() * 3);
@@ -22,7 +22,7 @@ function getComputerChoice() {
 }
 
 // Single round between player and computer
-function singleRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     if (PlayerChoice === ComputerChoice) {
         console.log(`"Player got ${PlayerChoice}`);
         console.log(`"Computer gpt ${ComputerChoice}"`);
@@ -51,4 +51,4 @@ function singleRound(playerSelection, computerSelection) {
 }
 
 // console.log(ComputerChoice)
-console.log(singleRound(PlayerChoice, ComputerChoice));
+console.log(playRound(PlayerChoice, ComputerChoice));
