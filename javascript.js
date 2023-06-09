@@ -1,6 +1,8 @@
 //  Variables
-const PlayerChoice = prompt("Make a selection: ", "Rock, Paper, or Scissors?").toUpperCase();
+// const PlayerChoice = prompt("Make a selection: ", "Rock, Paper, or Scissors?").toUpperCase();
 const ComputerChoice = getComputerChoice().toUpperCase();
+const PlayerChoice = getComputerChoice().toUpperCase();
+
 
 
 function getComputerChoice() {
@@ -36,8 +38,15 @@ function singleRound(playerSelection, computerSelection) {
         console.log(`"Computer gpt ${ComputerChoice}"`);
         console.log(`"You win with ${PlayerChoice}"`);
     }
+    else if ((PlayerChoice === "PAPER") && (ComputerChoice === "ROCK")) {
+        console.log(`"Player got ${PlayerChoice}`);
+        console.log(`"Computer gpt ${ComputerChoice}"`);
+        console.log(`"You win with ${PlayerChoice}"`);
+    }
     else {
-        console.log("Yay!");
+        console.log(`"Player got ${PlayerChoice}`);
+        console.log(`"Computer gpt ${ComputerChoice}"`);
+        console.log(`"Conputer wins with ${ComputerChoice}"`);
     }
 }
 
