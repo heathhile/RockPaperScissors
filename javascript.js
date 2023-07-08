@@ -4,7 +4,7 @@ let ComputerChoice = getComputerChoice().toUpperCase();
 let playerScore = 0;
 let computerScore = 0;
 let tiedScore = 0;
-
+//
 // Choose your weapon!!
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];;
