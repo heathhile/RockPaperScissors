@@ -47,10 +47,11 @@ function playRound(PlayerChoice, ComputerChoice) {
 function game() {
     // Loops through and gets the players choice
     // then gets computer choice and plays Thermonuclear War
-    for (let i = 0; i < 5; i++) {     
-        const PlayerChoice = prompt("Make a selection: ", "Rock, Paper, or Scissors?").toUpperCase();
-        playRound(PlayerChoice, ComputerChoice);
-    }
+    // !!!! Commented per assignement
+    // for (let i = 0; i < 5; i++) {     
+    //     const PlayerChoice = prompt("Make a selection: ", "Rock, Paper, or Scissors?").toUpperCase();
+    //     playRound(PlayerChoice, ComputerChoice);
+    // }
 
     //Compares and outputs the score.
     if (playerScore > computerScore) {

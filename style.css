@@ -1,0 +1,61 @@
+/* makes sizing simpler */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+    color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+    min-height: 100vh;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 3px;
+
+}
+
+.buttons {
+    border: solid red;
+    padding: 10px;
+
+}
+.rock, .paper, .scissors {
+    padding: 10px;
+    /* width: 10em; */
+    flex: 1;
+}
+
+.silly {
+    border: solid green 3px;
+}
