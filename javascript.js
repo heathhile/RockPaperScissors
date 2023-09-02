@@ -53,18 +53,27 @@ function game() {
     //     playRound(PlayerChoice, ComputerChoice);
     // }
 
-    //Compares and outputs the score.
-    if (playerScore > computerScore) {
-        console.log("Player wins with " + playerScore);
-        console.log("Computer had " + computerScore);
-        console.log("You tied " + tiedScore + " times!")
+    const PlayerChoice = "";
 
-    }
-    else {
-        console.log("Computer wins with " + computerScore);
-        console.log("Player had " + playerScore);
-        console.log("You tied " + tiedScore + " times!")
-    }
+    //Compares and outputs the score.
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                console.log(button.id);
+            })
+        })
+
+    // if (playerScore > computerScore) {
+    //     console.log("Player wins with " + playerScore);
+    //     console.log("Computer had " + computerScore);
+    //     console.log("You tied " + tiedScore + " times!")
+
+    // }
+    // else {
+    //     console.log("Computer wins with " + computerScore);
+    //     console.log("Player had " + playerScore);
+    //     console.log("You tied " + tiedScore + " times!")
+    // }
 }
 game();
 
