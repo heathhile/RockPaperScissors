@@ -10,6 +10,8 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];;
 }
 
+
+
 // Single round between player and computer
 function playRound(PlayerChoice, ComputerChoice) {
 
@@ -44,6 +46,15 @@ function playRound(PlayerChoice, ComputerChoice) {
         computerScore++;
     }
 }
+
+const btns = document.querySelectorAll('[data-button]');
+
+btns.forEach(button => {
+    button.addEventListener('click', () => {
+        console.log(button.innerText);
+    })
+})
+
 function game() {
     // Loops through and gets the players choice
     // then gets computer choice and plays Thermonuclear War
@@ -53,15 +64,7 @@ function game() {
     //     playRound(PlayerChoice, ComputerChoice);
     // }
 
-    const PlayerChoice = "";
-
     //Compares and outputs the score.
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach((button) => {
-            button.addEventListener('click', () => {
-                console.log(button.id);
-            })
-        })
 
     // if (playerScore > computerScore) {
     //     console.log("Player wins with " + playerScore);
