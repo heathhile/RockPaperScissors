@@ -49,7 +49,8 @@ video {
 
 .buttons,
 .silly,
-.myResults {
+.Results,
+.score {
     width: 100%;
     margin: 1em;
 }
@@ -80,7 +81,31 @@ video {
     border: solid green 3px;
 }
 
-.myResults {
+.Results {
     border: solid yellow 3px;
+}
 
+.score,
+.Results {
+    display: flex;
+    width: 100%;
+    border: solid;
+}
+
+.playerResult,
+.computerResult {
+    border: solid ;
+    gap: 2px;
+    margin: auto;
+    flex: 1;
+
+}
+
+.playerScore,
+.computerScore,
+.tiedScore {
+    border: solid orange 3px;
+    gap: 2px;
+    margin: auto;
+    flex: 1;
 }
