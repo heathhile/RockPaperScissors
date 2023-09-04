@@ -4,24 +4,26 @@ let playerScore = 0;
 let computerScore = 0;
 let tiedScore = 0;
 //
+
+function reset_score() {
+    document.getElementById("player_score").innerHTML = 0;
+    document.getElementById("computer_score").innerHTML = 0;
+    document.getElementById("tied_score").innerHTML = 0;
+}
+
+reset_score();
+
 // Choose your weapon!!
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];;
 }
 
-function update_score(playerScore) {
-
-}
-
-
 // Single round between player and computer
 function playRound(PlayerChoice, ComputerChoice) {
 
     if (PlayerChoice === ComputerChoice) {
-        console.log(`"Player got ${PlayerChoice}`);
-        console.log(`"Computer gpt ${ComputerChoice}"`);
-        console.log("You tied! Try again!");
         tiedScore++;
+        document.getElementById("tied_score").innerHTML = tiedScore;
     }
     else if ((PlayerChoice === "ROCK!") && (ComputerChoice === "SCISSORS!")) {
         console.log(`"Player got ${PlayerChoice}`);
@@ -49,8 +51,11 @@ function playRound(PlayerChoice, ComputerChoice) {
     }
 }
 
+// let reset_button = document.getElementById('reset');
 const btns = document.querySelectorAll('[data-button]');
 let btnsChoice = undefined;
+
+// reset_button = reset_score();
 
 btns.forEach(button => {
     button.addEventListener('click', () => {
@@ -68,16 +73,10 @@ function game(PlayerChoice) {
     //Compares and outputs the score.
 
     if (playerScore > computerScore) {
-        document.getElementById("player_score").innerHTML = playerScore.toString;
-        console.log("Player wins with " + playerScore);
-        console.log("Computer had " + computerScore);
-        console.log("You tied " + tiedScore + " times!")
-
+        document.getElementById("player_score").innerHTML = playerScore.toString();
     }
     else {
-        console.log("Computer wins with " + computerScore);
-        console.log("Player had " + playerScore);
-        console.log("You tied " + tiedScore + " times!")
+        document.getElementById("computer_score").innerHTML = playerScore.toString();
     }
 
 }

@@ -63,7 +63,8 @@ video {
 
 .rock,
 .paper,
-.scissors {
+.scissors,
+#reset {
     padding: 10px;
     min-width: 7em;
     margin: 5px;
