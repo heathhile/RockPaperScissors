@@ -1,84 +1,106 @@
-//  Variables
-let choices = ['ROCK!', 'PAPER!', 'SCISSORS!']    
-let playerScore = 0;
-let computerScore = 0;
-let tiedScore = 0;
-//
+// Class for buttons and such
 
-function reset_score() {
-    document.getElementById("player_score").innerHTML = 0;
-    document.getElementById("computer_score").innerHTML = 0;
-    document.getElementById("tied_score").innerHTML = 0;
+class RPS {
+    constructor(playerScoreTextElement, computerScoreTextElement, tiedScoreTextElement) {
+        this.playerScoreTextElement = playerScoreTextElement;
+        this.computerScoreTextElement = computerScoreTextElement;
+        this.tiedScoreTextElement = tiedScoreTextElement;
+        this.reset_score();
+    }
+
+    reset_score() {
+        this.currentplayerscore = 0;
+        this.currentcomputerscore = 0;
+        this.currenttiedscore = 0;
+    }
+
+    update_player_score(playerScore) {
+        this.playerScoreTextElement.innerHTML = this.playerScore;
+    }
+
+    update_computer_score(computerScore) {
+        this.computerScoreTextElement.innerHTML = this.computerScore;
+    }
+
+    update_player_score(tiedScore) {
+        this.tiedScoreTextElement.innerHTML = this.tiedScore;
+    }
 }
 
-reset_score();
+
+//  Variables
+
+const choices = ['ROCK!', 'PAPER!', 'SCISSORS!']
+const playerScoreTextElement = document.querySelector('[data-player-score]');
+const computerScoreTextElement = document.querySelector('[data-computer-score]');
+const tiedScoreTextElement = document.querySelector('[data-tied-score]');
+const data_btns = document.querySelectorAll('[data-button]');
+const data_reset = document.getElementById("reset");
+var playerScore = 0;
+var computerScore = 0;
+var tiedScore = 0;
+var btnsChoice = undefined;
+var btnsReset = undefined;
+
+const newGame = new RPS(playerScoreTextElement, computerScoreTextElement, tiedScoreTextElement);
+
+
+data_btns.forEach(button => {
+    button.addEventListener('click', () => {
+        btnsChoice = button.innerText;
+        playRound(btnsChoice);
+    })
+})
+
+data_reset.addEventListener('click', () => {
+        newGame.reset_score();
+    })
 
 // Choose your weapon!!
 function getComputerChoice() {
-    return choices[Math.floor(Math.random() * 3)];;
+    return choices[Math.floor(Math.random() * 3)];
 }
+    
+
 
 // Single round between player and computer
-function playRound(PlayerChoice, ComputerChoice) {
+function playRound(PlayerChoice) {
+
+    let ComputerChoice = getComputerChoice();
 
     if (PlayerChoice === ComputerChoice) {
         tiedScore++;
-        document.getElementById("tied_score").innerHTML = tiedScore;
     }
     else if ((PlayerChoice === "ROCK!") && (ComputerChoice === "SCISSORS!")) {
         console.log(`"Player got ${PlayerChoice}`);
-        console.log(`"Computer gpt ${ComputerChoice}"`);
+        console.log(`"Computer got ${ComputerChoice}"`);
         console.log(`"You win with ${PlayerChoice}"`);
         playerScore++;
     }
     else if ((PlayerChoice === "SCISSORS!") && (ComputerChoice === "PAPER!")) {
         console.log(`"Player got ${PlayerChoice}`);
-        console.log(`"Computer gpt ${ComputerChoice}"`);
+        console.log(`"Computer got ${ComputerChoice}"`);
         console.log(`"You win with ${PlayerChoice}"`);
         playerScore++;
     }
     else if ((PlayerChoice === "PAPER!") && (ComputerChoice === "ROCK!")) {
         console.log(`"Player got ${PlayerChoice}`);
-        console.log(`"Computer gpt ${ComputerChoice}"`);
+        console.log(`"Computer got ${ComputerChoice}"`);
         console.log(`"You win with ${PlayerChoice}"`);
         playerScore++;
     }
     else {
         console.log(`"Player got ${PlayerChoice}`);
-        console.log(`"Computer gpt ${ComputerChoice}"`);
+        console.log(`"Computer got ${ComputerChoice}"`);
         console.log(`"Conputer wins with ${ComputerChoice}"`);
         computerScore++;
     }
-}
-
-// let reset_button = document.getElementById('reset');
-const btns = document.querySelectorAll('[data-button]');
-let btnsChoice = undefined;
-
-// reset_button = reset_score();
-
-btns.forEach(button => {
-    button.addEventListener('click', () => {
-        console.log(button.innerText);
-        btnsChoice = button.innerText;
-        game(btnsChoice)
-    })
-})
-
-function game(PlayerChoice) {
-    let ComputerChoice = getComputerChoice().toUpperCase();
-    // let p_score = document.querySelector('[data-player-score]')
-    playRound(PlayerChoice, ComputerChoice);
-
-    //Compares and outputs the score.
 
     if (playerScore > computerScore) {
-        document.getElementById("player_score").innerHTML = playerScore.toString();
+        newGame.update_player_score();
     }
     else {
-        document.getElementById("computer_score").innerHTML = playerScore.toString();
+        newGame.update_computer_score();
     }
 
 }
-game();
-
